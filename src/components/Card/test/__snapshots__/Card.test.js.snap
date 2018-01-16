@@ -38,7 +38,7 @@ ShallowWrapper {
           <img
                     alt="Back drop for undefined"
                     className="backdrop"
-                    src="https://image.tmdb.org/t/p/w500undefined"
+                    src={null}
           />
           <button
                     className="card-fav"
@@ -80,7 +80,7 @@ ShallowWrapper {
             <img
               alt="Back drop for undefined"
               className="backdrop"
-              src="https://image.tmdb.org/t/p/w500undefined"
+              src={null}
 />,
             <button
               className="card-fav"
@@ -106,7 +106,7 @@ ShallowWrapper {
             "props": Object {
               "alt": "Back drop for undefined",
               "className": "backdrop",
-              "src": "https://image.tmdb.org/t/p/w500undefined",
+              "src": null,
             },
             "ref": null,
             "rendered": null,
@@ -204,7 +204,7 @@ ShallowWrapper {
             <img
                         alt="Back drop for undefined"
                         className="backdrop"
-                        src="https://image.tmdb.org/t/p/w500undefined"
+                        src={null}
             />
             <button
                         className="card-fav"
@@ -246,7 +246,7 @@ ShallowWrapper {
               <img
                 alt="Back drop for undefined"
                 className="backdrop"
-                src="https://image.tmdb.org/t/p/w500undefined"
+                src={null}
 />,
               <button
                 className="card-fav"
@@ -272,7 +272,7 @@ ShallowWrapper {
               "props": Object {
                 "alt": "Back drop for undefined",
                 "className": "backdrop",
-                "src": "https://image.tmdb.org/t/p/w500undefined",
+                "src": null,
               },
               "ref": null,
               "rendered": null,
