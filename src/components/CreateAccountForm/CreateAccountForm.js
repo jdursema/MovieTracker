@@ -18,7 +18,6 @@ class CreateAccountForm extends Component {
   handleClick = event => {
     event.preventDefault();
     this.props.handleNewAccount(this.state);
-    console.log(this.props.user);
   };
 
   render() {

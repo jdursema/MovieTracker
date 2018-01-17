@@ -2,10 +2,12 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(../../assets/stage.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 90vh;
+  background-color: black;
+  height: 30vh;
+  width: 40vw;
+  position: fixed;
+  top: 175px;
+  left: 28%;
   fieldset {
     display: flex;
     flex-direction: column;

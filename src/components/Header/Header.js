@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { logOut, getFavorites } from '../../actions';
 import PropTypes from 'prop-types';
 import './Header.css';
@@ -8,26 +8,21 @@ import './Header.css';
 class Header extends Component {
 
   componentWillUpdate(nextProps) {
-    // console.log(this.props)
-    // console.log(this.props.history)
     if (nextProps.loggedIn && !this.props.loggedIn) {
       this.props.history.push('/');
-
     }
   }
 
   handleFavoritesClick = () => {
-    //if a user is not signed in, prompt them to sign in/create account
-
     if (this.props.loggedIn){
-      console.log('displayfavorites moo')
-      this.props.displayFavorites(this.props.username.id)
+      this.props.displayFavorites(this.props.username.id);
     }
   }
 
-
   render() {
-    const username = this.props.username.name ? this.props.username.name : 'Guest';
+    const username = this.props.username.name 
+      ? this.props.username.name
+      : 'Guest';
 
     const signOutBtn = 
       <button onClick={(event)=> {
@@ -57,9 +52,9 @@ class Header extends Component {
         </Link>
         <h3>Hello, {username}!</h3>
         {userButtons}
-        <Link to= '/favorites'>
+        <NavLink to= '/favorites' className='favBtn'>
           <button onClick={this.handleFavoritesClick}>Favorites</button>
-        </Link>
+        </NavLink>
       </header>
     );
   }
@@ -75,11 +70,12 @@ const mapDispatchToProps = dispatch => ({
   displayFavorites: (userId) => dispatch(getFavorites(userId))
 });
 
-
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
 
 Header.propTypes = {
   username: PropTypes.object,
   loggedIn: PropTypes.bool,
-  handleLogOut: PropTypes.func
+  handleLogOut: PropTypes.func,
+  displayFavorites: PropTypes.func,
+  history: PropTypes.object
 };

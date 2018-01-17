@@ -35,7 +35,6 @@ class Login extends Component {
             onClick={event => {
               event.preventDefault();
               this.props.handleLogin(this.state);
-              // this.props.history.push('/');
             }}>
             LOGIN
           </button>

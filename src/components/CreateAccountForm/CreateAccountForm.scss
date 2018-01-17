@@ -2,10 +2,9 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(../../assets/stage.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: black;
   height: 90vh;
+  color: white;
   fieldset {
     display: flex;
     flex-direction: column;

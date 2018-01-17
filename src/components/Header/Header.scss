@@ -5,11 +5,34 @@ header {
   align-items: center;
   color: #4A7AAF;
   background-color: #000201;
+  .createaccount,
+  .login {
+    border: 1px solid white;
+    transition: 0.8s;
+    color: white;
+    padding: 5px;
+    margin: 0px 10px;
+    &:hover {
+      color: #4A7AAF;
+      border: 1px solid #4A7AAF;
+    }
+  }
   h1 {
     font-size: 46px;
   }
+  .favBtn.active{
+    background: #4A7AAF;
+    
+  }
   button{
-    background-color: magenta;
+    border: 1px solid white;
+    transition: 0.8s;
+    color: white;
+    padding: 5px;
+    &:hover {
+      color: #4A7AAF;
+      border: 1px solid #4A7AAF;
+    }
   }
 }
 

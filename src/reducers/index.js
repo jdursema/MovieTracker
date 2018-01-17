@@ -4,7 +4,6 @@ import userReducer from './user-reducer';
 import errorReducer from './error-reducer';
 import favoritesReducer from './favorites-reducer';
 
-
 const rootReducer = combineReducers({
   movies: moviesReducer,
   user: userReducer,

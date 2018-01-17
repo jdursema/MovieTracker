@@ -7,7 +7,6 @@ describe('All actions', () => {
       type: 'FETCH_MOVIES',
       moviesArray
     };
-
     expect(actions.fetchMovies(moviesArray)).toEqual(expected);
   });
 
@@ -33,7 +32,6 @@ describe('All actions', () => {
       type: 'LOGIN',
       userObj
     };
-
     expect(actions.logIn(userObj)).toEqual(expected);
   });
 
@@ -80,18 +78,24 @@ describe('All actions', () => {
     expect(actions.addFavorite(userId, movieObj)).toEqual(expected);
   });
 
-  it.skip('runs the function postUserLogin when logInUser has been called', async () => {
-    const userObj = { 
-      username: 'Julie',
-      email: 'jmdursema@gmail.com', 
-      password: 'guest' };
-    const postUserLogin= jest.fn();
-    
-    await actions.logInUser(userObj);
-    
-    expect(postUserLogin).toHaveBeenCalled();
+  it('has a type of REMOVE_FAV', () => {
+    const userId = 1;
+    const movieId = 23322;
+    const expected = {
+      type: 'REMOVE_FAV',
+      userId,
+      movieId
+    };
+    expect(actions.removeFavorite(userId, movieId)).toEqual(expected);
+  });
+
+  it('has a type of FETCH_FAVS', () => {
+    const moviesArray =[{title: 'The Sandlot'}, {title: 'Zombieland'}];
+    const expected = {
+      type: 'FETCH_FAVS',
+      moviesArray
+    };
+    expect(actions.fetchFavorites(moviesArray)).toEqual(expected);
   });
   
-  //mockpostUserLogIn= jest.fn()
-  //expect when loginUser is called expect mock postUserLogin to have been called. 
 });

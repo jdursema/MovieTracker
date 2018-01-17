@@ -15,7 +15,7 @@ class App extends Component {
     try {
       this.props.handleFetch();
     } catch (error) {
-      console.log('error:', error);
+      return error;
     }
   }
 

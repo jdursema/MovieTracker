@@ -1,3 +1,6 @@
+/*eslint-disable max-len*/
+/*eslint-disable camelcase*/
+
 import { apiKey } from './.apiKey';
 
 export const apiFetch = async () => {
@@ -9,7 +12,7 @@ export const apiFetch = async () => {
     const movieArray = parsedData.results;
     return movieArray;
   } catch (error) {
-    console.log('movies fetch', error);
+    return null;
   }
 };
 
@@ -23,7 +26,6 @@ export const postNewAccount = async (userObj) => {
   });
 
   if (newUserPost.status >= 400) {
-    console.log('new account bad status');
     return null;
   }
 
@@ -39,12 +41,10 @@ export const postUserLogin = async (userObj) => {
     body: JSON.stringify(userObj)
   });
 
-
   if (userLogIn.status >= 400) {
-    console.log('logn error', userLogIn);
     return null;
   }
-  //console.log(userLogIn);
+
   return await userLogIn.json();
 };
 
@@ -58,33 +58,40 @@ export const postFav = async (userId, movieObj) => {
     },
     body: JSON.stringify({...userIdObj, ...movieObj})
   });
-  const jsonData = await favData.json();
-  return jsonData;
+
+  if (favData.status >= 400) {
+    return null;
+  }
+
+  return await favData.json();
 };
 
 
 export const deleteFavorite = async (userId, movieId) => {
-  const payloadObj = {user_id: userId, movie_id: movieId}
-  const favData = await fetch (`/api/users/${userId}/favorites/${movieId}`, {
+  const payloadObj = {user_id: userId, movie_id: movieId};
+  const favData = await fetch(`/api/users/${userId}/favorites/${movieId}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(payloadObj)
   });
+
+  if (favData.status >= 400) {
+    return null;
+  }
+  
   return await favData.json();
 };
 
 export const getUserFavs = async (userId) => {
-  const favArray = await fetch (`/api/users/${userId}/favorites`);
+  const favArray = await fetch(`/api/users/${userId}/favorites`);
+
+  if (favArray.status >= 400) {
+    return null;
+  }
+
   const jsonFavArray = await favArray.json();
-  return jsonFavArray.data
+
+  return jsonFavArray.data;
 };
-
-
-
-
-
-
-
-
